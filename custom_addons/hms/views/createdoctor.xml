@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+
+        <record id ='createdoctors' model="ir.actions.act_window">
+            <field name="name" >doctors Data</field>
+            <field name="res_model">doctorsdata</field>
+        </record>
+        
+        <record id="doctoralldata" model='ir.ui.view'>
+        <field name="name"> doctor </field>
+        <field name="model">doctorsdata</field>
+        <field name="arch" type="xml">
+        <tree>
+            <field name="firstName"/>
+            <field name="lastName"/>
+            <field name="image"/>
+        </tree>
+        </field>
+        </record>
+
+       
+        <menuitem name = 'doctors' id = 'doctor_menu' parent="HSM_base_menu"
+        action = 'createdoctors' groups="hms.manger_group"  />
+    </data>
+</odoo>

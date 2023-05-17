@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        
+         <record id = 'patient_inherit' model="ir.ui.view">
+            <field name="name">patient_inherit</field>
+            <field name="model" >res.partner</field>
+             <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='sales_purchases']//group//group[@name='misc']" position="inside">
+                    <field name="patient_id" domain = "[('is_available' , '=', True)]">
+                    </field>
+                </xpath>
+            </field>
+         </record>
+
+
+        <record id="base.view_partner_tree" model='ir.ui.view'>
+        <field name="name"> customer </field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+        <tree>
+            <field name="display_name"/>
+            <field name="phone"/>
+            <field name="email"/>
+            <field name="user_id"/>
+            <field name="city"/>
+            <field name="country_id"/>
+            <field name="company_id"/>
+            <field name="website"/>
+        </tree>
+        </field>
+        </record>
+
+
+
+
+
+
+
+
+
+
+    </data>
+</odoo>

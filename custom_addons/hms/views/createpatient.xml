@@ -1,0 +1,96 @@
+<odoo>
+    <data>
+
+        <record id ='createpatient' model="ir.actions.act_window">
+            <field name="name" >Patients Data</field>
+            <field name="res_model">patientsdata</field>
+        </record>
+        
+       <record id = 'patient_form_view' model="ir.ui.view">
+            <field name="name"> patient Form View</field>
+            <field name="model" >patientsdata</field>
+            <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="states" widget="statusbar" nolabel="1" options="{'clickable':'1'}"/>
+                </header>
+                <sheet>
+                    <notebook string = 'patient Data'>
+                        <page string="Information 1 ">
+                    <group string = 'Personal Information'>
+                    <field name="firstName"  />
+                    <field name="lastName"  />
+                    <field name="age"/>
+                    <field name="address"/>
+                    <field name="image"/>
+                    <field name="email"/>
+                     <field name="is_available"/>
+                    </group>
+                        </page>
+                        <page string="Information 2 ">
+                    <group string = 'medical Information'>
+                        <field name="birthDate" />
+                        <field name="history"  attrs = "{
+                        'invisible' : [('age' , '&lt;', 50)]}" />
+                        <field name="CR_Ratio" attrs = "{'required' : [('PCR' , '=' , True)]}" />
+                        <field name="blood" />
+                         <field name="PCR"/>
+                    </group>
+                        </page>
+                        <page string = 'department Information'>
+                            <group>
+                            <field name="department_id" domain = "[('Is_opened' , '=', True)]"/>
+                            <field name = 'department_capacity' string = 'Department Capacity'/>
+                            <field name = 'doctors_id' attrs = "{'readonly' : [('department_id' , '=' , False)]}" groups="hms.manger_group" >
+                             <tree>
+                                    <field name="firstName"/>
+                                    <field name="lastName"/>
+                            </tree>
+                            </field>
+                            </group>
+                        </page>
+                        <page string="History Logs">
+                                <field name="history_logs">
+                                    <tree>
+                                    <field name="create_date"/>
+                                    <field name="create_uid"/>
+                                    <field name="description"/>
+                                    </tree>
+                                </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+            </field>
+        </record>
+
+
+
+
+
+
+
+
+
+
+
+        <record id="patientalldata" model='ir.ui.view'>
+        <field name="name"> patient </field>
+        <field name="model">patientsdata</field>
+        <field name="arch" type="xml">
+        <tree>
+            <field name="firstName"/>
+            <field name="lastName"/>
+            <field name="image"/>
+            <field name="is_available"/>
+        </tree>
+        </field>
+        </record>
+
+        <menuitem name = 'H_S_M' id = 'HSM_base_menu'/>
+        <menuitem name = 'Patients' id = 'patient_menu' parent="HSM_base_menu"
+        action = 'createpatient' />
+    </data>
+</odoo>
+
+

@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+
+        <record id ='createdepartment' model="ir.actions.act_window">
+            <field name="name" >department Data</field>
+            <field name="res_model">departmentdata</field>
+        </record>
+        
+        <record id="doctoralldata" model='ir.ui.view'>
+        <field name="name"> department </field>
+        <field name="model">departmentdata</field>
+        <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="Capacity"/>
+            <field name="Is_opened"/>
+        </tree>
+        </field>
+        </record>
+
+         <record id = 'department_form_view' model="ir.ui.view">
+            <field name="name"> department Form View</field>
+            <field name="model" >departmentdata</field>
+            <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <notebook>
+                        <page string = 'department Data'>
+                <group>
+                <field name="name"/>
+                <field name="Is_opened"/>
+                <field name="Capacity"/>
+                </group>
+                        </page>
+                        <page string = 'Department Data'>
+                            <group>
+                            <field name="patient_ids">
+                                <tree>
+                                    <field name="firstName"/>
+                                    <field name="lastName"/>
+                                     <field name="birthDate"/>
+                                    <field name="states"/>
+                                </tree>
+                            </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+            </field>
+        </record>
+
+
+
+
+
+
+
+
+       
+        <menuitem name = 'department' id = 'department_menu' parent="HSM_base_menu"
+        action = 'createdepartment' />
+    </data>
+</odoo>

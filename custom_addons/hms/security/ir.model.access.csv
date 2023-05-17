@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+user_cutomer_patient_access,user_cutomer_patient_model_access,model_res_partner,user_group,1,1,1,1
+user_history_log_access,user_history_log_model_access,model_history_log,user_group,1,1,1,0
+user_patient_access,user_patient_model_access,model_patientsdata,user_group,1,1,1,0
+user_doctor_access,user_doctor_model_access,model_doctorsdata,user_group,1,0,0,0
+user_department_access,user_department_model_access,model_departmentdata,user_group,1,0,0,0
+manger_cutomer_patient_access,manger_cutomer_patient_model_access,model_res_partner,manger_group,1,1,1,1
+manger_history_log_access,manger_history_log_model_access,model_history_log,manger_group,1,1,1,1
+manger_patient_access,manger_patient_model_access,model_patientsdata,manger_group,1,1,1,1
+manger_doctor_access,manger_doctor_model_access,model_doctorsdata,manger_group,1,1,1,1
+manger_department_access,manger_department_model_access,model_departmentdata,manger_group,1,1,1,1
+
